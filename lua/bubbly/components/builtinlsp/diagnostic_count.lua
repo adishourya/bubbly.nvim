@@ -28,8 +28,8 @@ return function(inactive)
   if not process_filter(settings.filter) then
     return nil
   end
-  local error_count = vim.lsp.diagnostic.get_count(0, "Error")
-  local warning_count = vim.lsp.diagnostic.get_count(0, "Warning")
+  local error_count = vim.lsp.diagnostic.get(0, "Error")
+  local warning_count = vim.lsp.diagnostic.get(0, "Warning")
   return {
     {
       data = error_count ~= 0 and settings.symbol.error:format(error_count),
